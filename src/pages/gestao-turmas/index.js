@@ -1,36 +1,33 @@
-// Index.js
-
-import React, { useState } from 'react';
-import TabTurmas from './components/TabTurmas';
-import CadastrarTurma from './components/CadastroTurmas'; // Ajuste o caminho conforme necessário
-import { Button, Dialog, DialogTitle, DialogContent } from '@mui/material';
+import React, { useState, useEffect } from 'react';
+import TurmasList from './components/TurmasList';
+import { CirclesWithBar } from 'react-loader-spinner';
+import './style.css';
 
 const Index = () => {
-  const [openDialog, setOpenDialog] = useState(false);
+  const [loading, setLoading] = useState(true);
 
-  const handleOpenDialog = () => {
-    setOpenDialog(true);
-  };
+  useEffect(() => {
+    const timeout = setTimeout(() => {
+      setLoading(false);
+    }, 2000);
 
-  const handleCloseDialog = () => {
-    setOpenDialog(false);
-  };
+    return () => clearTimeout(timeout);
+  }, []);
 
   return (
-    <div className='mt-4'>
-      <h1>Turmas Cadastradas</h1>
-      <Button variant="contained" onClick={handleOpenDialog} className='mb-2'>
-        Criar Turma
-      </Button>
-      <Dialog open={openDialog} onClose={handleCloseDialog}>
-        <DialogTitle>Criar Nova Turma</DialogTitle>
-        <DialogContent>
-          <CadastrarTurma />
-        </DialogContent>
-      </Dialog>
-      <div className='container'>
-        <TabTurmas /> 
-      </div>
+    <div className='m-4 text-center'>
+      {loading ? (
+        <div className='d-flex justify-content-center align-items-center' style={{ height: '100vh' }}>
+          <CirclesWithBar
+            type="CirclesWithBar"
+            color="#00BFFF"
+            height={120}
+            width={120}
+          />
+        </div>
+      ) : (
+        <TurmasList />
+      )}
     </div>
   );
 };

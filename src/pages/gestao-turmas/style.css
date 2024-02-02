@@ -1,0 +1,26 @@
+.custom-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 4rem; /* ou qualquer valor desejado para espaçamento superior */
+}
+/* TurmasList.css */
+
+.turmas-list-container {
+  padding: 20px;
+}
+
+.custom-table {
+  width: 100%;
+}
+
+.action-button {
+  margin-right: 5px;
+}
+
+.loading-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh; /* Isso garante que o contêiner ocupa 100% da altura da tela */
+}

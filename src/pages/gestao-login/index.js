@@ -27,7 +27,8 @@ export default function Login() {
         confirmButtonText: 'Ok'
       }).then((result) => {
         if (result.isConfirmed) {
-          navigate('/alunos');
+          navigate('/turmas');
+          window.location.reload(); // Recarregar a página após o redirecionamento
         }
       });
       
