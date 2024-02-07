@@ -1,7 +1,7 @@
 import axios from 'axios';
 
 const api = axios.create({
-    baseURL: 'https://escolarcrm20231224175456.azurewebsites.net'
+    baseURL: ''
 });
 
 api.interceptors.request.use((config) => {
